@@ -13,9 +13,9 @@ const Login = () => {
   return (
     <>
       <img className='bg-black' src={doodle} alt="" />
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center">
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center">
         <div className="flex justify-center items-center w-full">
-          <div className="bg-black border border-white shadow-lg mt-6 p-6">
+          <div className="bg-black border border-white shadow-lg mt-3 p-6">
             <h3 className="text-4xl mb-5 text-white">Login</h3>
             <form className="space-y-5">
               <div>
