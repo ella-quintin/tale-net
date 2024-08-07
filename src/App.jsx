@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard';
 import Profile from './pages/dashboard/pages/profile';
 import Company from './pages/dashboard/pages/company';
 import Product from './pages/dashboard/pages/product';
+import Event from './pages/dashboard/pages/event';
 
 function App() {
 
@@ -44,6 +45,11 @@ function App() {
     {
       path: "/product",
       element: <Product/>,
+    
+    }, 
+    {
+      path: "/event",
+      element: <Event/>,
     
     }, 
   ]);

@@ -35,6 +35,12 @@ export default function Sidebar() {
                                 <span>Product</span>
                             </li>
                         </Link>
+                        <Link to='/event'>
+                            <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                                <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                                <span>Event</span>
+                            </li>
+                        </Link>
 
                         <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
                             <img className='text-red-600 hover:text-white' src={grid} alt="" />
