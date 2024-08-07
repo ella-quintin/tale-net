@@ -3,6 +3,7 @@ import doodle from '../../assets/images/doodle.svg';
 import vector from '../../assets/images/vector.png';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
+import google from '../../assets/images/google.png'
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const SignUp = () => {
               <input
                 type="text"
                 id="fullname"
-                placeholder="Ella Quintin"
+                placeholder="Kofi Poku"
                 className="w-96 px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-gray-700"
               />
             </div>
@@ -38,7 +39,7 @@ const SignUp = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="ella@gmail.com"
+                placeholder="example@gmail.com"
                 className="w-96 px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-gray-700"
               />
             </div>
@@ -74,10 +75,10 @@ const SignUp = () => {
             <div className="h-px bg-gray-700 w-full"></div>
           </div>
           <button className="flex items-center justify-center w-96 mt-6 border border-gray-700 py-2 rounded-md hover:bg-gray-800">
-            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google logo" className="w-5 h-5 mr-2" />
+            <img src={google} alt="Google logo" className="w-8 h-7  mr-1" />
             <span className="text-white">Sign up with Google</span>
           </button>
-          <div className="mt-6 text-center text-sm">
+          <div className="mt-6 text-center text-sm flex justify-center items-center">
             <span className="text-gray-400">Have an account? </span>
             <button onClick={handleLoginClick} className="text-gray-200">Login here</button>
           </div>

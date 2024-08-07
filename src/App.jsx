@@ -4,6 +4,10 @@ import Login from './pages/login';
 import Sidebar from './components/sidebar';
 import Landing from './pages/landing';
 import Dashboard from './pages/dashboard';
+import Profile from './pages/dashboard/pages/profile';
+import Company from './pages/dashboard/pages/company';
+import Product from './pages/dashboard/pages/product';
+
 function App() {
 
   const router= createBrowserRouter([
@@ -25,6 +29,21 @@ function App() {
     {
       path: "/dashboard",
       element: <Dashboard/>,
+    
+    }, 
+    {
+      path: "/profile",
+      element: <Profile/>,
+    
+    }, 
+    {
+      path: "/company",
+      element: <Company/>,
+    
+    }, 
+    {
+      path: "/product",
+      element: <Product/>,
     
     }, 
   ]);

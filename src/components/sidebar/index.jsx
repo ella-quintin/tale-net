@@ -1,4 +1,5 @@
 import grid from '../../assets/images/grid.png'
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     return (
@@ -7,18 +8,34 @@ export default function Sidebar() {
                 <h3 className='text-white text-lg'>Tale-Net</h3>
                 <div className="flex py-6">
                     <ul className="space-y-2 w-full">
-                        <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
-                            <img color='' className='text-red-600 hover:text-white' src={grid} alt="" />
-                            <span>Dashboard</span>
-                        </li>
-                        <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
-                            <img className='text-red-600 hover:text-white' src={grid} alt="" />
-                            <span>Profile</span>
-                        </li>
-                        <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
-                            <img className='text-red-600 hover:text-white' src={grid} alt="" />
-                            <span>Product</span>
-                        </li>
+                        <Link to='/dashboard'>
+                            <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                                <img color='' className='text-red-600 hover:text-white' src={grid} alt="" />
+                                <span>Dashboard</span>
+                            </li>
+                        </Link>
+
+                        <Link to='/profile'>
+                            <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                                <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                                <span>Profile</span>
+                            </li>
+                        </Link>
+
+                        <Link to='/company'>
+                            <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                                <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                                <span>Company details</span>
+                            </li>
+                        </Link>
+
+                        <Link to='/product'>
+                            <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                                <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                                <span>Product</span>
+                            </li>
+                        </Link>
+
                         <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
                             <img className='text-red-600 hover:text-white' src={grid} alt="" />
                             <span>Orders</span>
