@@ -41,11 +41,29 @@ export default function Sidebar() {
                                 <span>Event</span>
                             </li>
                         </Link>
+                        <Link to='/payment'>
+                            <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                                <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                                <span>Payment</span>
+                            </li>
+                        </Link>
 
                         <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
                             <img className='text-red-600 hover:text-white' src={grid} alt="" />
                             <span>Orders</span>
                         </li>
+                        <Link to='/invoice'>
+                        <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                            <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                            <span>Invoice</span>
+                        </li>
+                        </Link>
+                        <Link to='/receipts'>
+                        <li className="flex items-center text-[18px] text-white space-x-4 p-4 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer">
+                            <img className='text-red-600 hover:text-white' src={grid} alt="" />
+                            <span>Invoice</span>
+                        </li>
+                        </Link>
                     </ul>
                 </div>
 
