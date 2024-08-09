@@ -1,5 +1,6 @@
 import React from 'react';
 import doodle from '../../assets/images/doodle.svg';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     return (
@@ -13,9 +14,11 @@ export default function Navbar() {
                     <h3 className="cursor-pointer">Services</h3>
                     <h3 className="cursor-pointer">Subscription</h3>
                     <h3 className="cursor-pointer">Vendors</h3>
+                    <Link to='/login'>
                     <button className="bg-red-600 px-3 w-28 py-2 rounded-md text-white hover:bg-red-500">
                         Login
                     </button>
+                    </Link>
                 </div>
             </div>
         </nav>

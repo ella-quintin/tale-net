@@ -8,6 +8,12 @@ import Profile from './pages/dashboard/pages/profile';
 import Company from './pages/dashboard/pages/company';
 import Product from './pages/dashboard/pages/product';
 import Event from './pages/dashboard/pages/event';
+import Invoice from './pages/dashboard/pages/invoice';
+import Receipt from './pages/dashboard/pages/receipts';
+import Payment from './pages/dashboard/pages/payment';
+import CreativePage from './pages/creativePage';
+import Creatives from './pages/creativePage/creatives';
+
 
 function App() {
 
@@ -51,6 +57,29 @@ function App() {
       path: "/event",
       element: <Event/>,
     
+    }, 
+    {
+      path: "/payment",
+      element: <Payment/>,
+    
+    }, 
+    {
+      path: "/invoice",
+      element: <Invoice/>,
+    
+    }, 
+    {
+      path: "/receipts",
+      element: <Receipt/>,
+    
+    }, 
+    {
+      path: "/creatives",
+      element: <Creatives/>,
+    }, 
+    {
+      path: "/creativepage",
+      element: <CreativePage/>,
     }, 
   ]);
 
