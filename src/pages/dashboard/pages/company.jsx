@@ -40,6 +40,16 @@ export default function Company() {
                                 </div>
 
                                 <div>
+                                    <label className="block text-gray-900 font-bold mb-2" htmlFor="company-name">Location</label>
+                                    <input
+                                        type="text"
+                                        id="company-name"
+                                        placeholder=""
+                                        className="w-full px-4 py-2 text-black bg-[#6060601A] border rounded-md"
+                                    />
+                                </div>
+
+                                <div>
                                     <label className="block text-gray-900 font-bold mb-2" htmlFor="brand-description">Brand description</label>
                                     <input
                                         type="text"

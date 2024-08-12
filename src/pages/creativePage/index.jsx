@@ -3,7 +3,6 @@ import pattern from '../../assets/images/pattern.svg';
 import logo from '../../assets/images/logo.jpg';
 import Brand from './components/brand';
 import ViewProfile from './components/viewProfile';
-import framer from '../../assets/images/framer.svg';
 import mj from '../../assets/images/mj.jpg';
 import Gallery from './components/gallery';
 import lfive from '../../assets/images/lfive.jpg';
@@ -11,18 +10,20 @@ import lthree from '../../assets/images/lthree.jpg';
 import lsix from '../../assets/images/lsix.jpg';
 import ltwo from '../../assets/images/ltwo.jpg';
 import Shop from './components/shop';
+import { Link } from 'react-router-dom';
 
 const CreativePage = () => {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       {/* Nav */}
       <header className="p-4 flex justify-between items-center bg-black">
-        <h1 className="text-xl font-bold">Tale-net</h1>
+        <Link to='/'><h1 className="text-xl font-bold">Tale-net</h1></Link>
         <nav className="space-x-8">
           <a href="#" className="hover:underline">Home</a>
           <a href="#" className="hover:underline">Bio</a>
           <a href="#" className="hover:underline">Gallery</a>
-          <a href="#" className="hover:underline">Marketplace</a>
+          <Link to='/productspage'><a href="#" className="hover:underline">Marketplace</a></Link>
+          <a href="#" className="hover:underline">Report</a>
         </nav>
       </header>
 
@@ -50,7 +51,6 @@ const CreativePage = () => {
       {/* Profile Section */}
       <div className='mt-96'>
         <ViewProfile
-          framer={framer}
           profilePicture={mj}
           fullName='Julie Baidoe - Ansah'
           position='Creative Director'
@@ -93,6 +93,7 @@ const CreativePage = () => {
                         cta="Add to Cart"
                     />
                 </div>
+                <Link to='/productspage'><button  className="mt-6 border border-white text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition" >View all</button></Link>
             </div>
         </div>
   );

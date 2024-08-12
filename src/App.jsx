@@ -13,6 +13,8 @@ import Receipt from './pages/dashboard/pages/receipts';
 import Payment from './pages/dashboard/pages/payment';
 import CreativePage from './pages/creativePage';
 import Creatives from './pages/creativePage/creatives';
+import ProductsPage from './pages/creativePage/components/productsPage';
+import ProductDetails from './pages/creativePage/components/productDetails';
 
 
 function App() {
@@ -80,6 +82,14 @@ function App() {
     {
       path: "/creativepage",
       element: <CreativePage/>,
+    }, 
+    {
+      path: "/productspage",
+      element: <ProductsPage/>,
+    }, 
+    {
+      path:"/products/:productId",
+      element: <ProductDetails />
     }, 
   ]);
 
