@@ -13,6 +13,7 @@ const Shop = ({ productImage, productName, price, productDescription, cta }) => 
                 </button>
             </div>
         </div>
+        
     );
 };
 
