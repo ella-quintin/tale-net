@@ -53,14 +53,6 @@ export default function Event () {
                                         className="w-full px-4 py-2 text-[#A6A6A6] bg-[#6060601A] border rounded-md"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-gray-900 font-bold mb-2" htmlFor="category">Category</label>
-                                    <select id="category" className="w-full px-4 py-2 bg-[#6060601A] text-black border rounded-md">
-                                        <option value="">Select a category</option>
-                                        <option value="art">Free</option>
-                                        <option value="art">Paid</option>
-                                    </select>
-                                </div>
                             </div>
                             <div className="flex space-x-4 justify-center mt-8">
                                 <button type="button" className="w-full py-2 px-4 bg-white text-[#CC212D] font-bold border border-[#CC212D] rounded-lg">

@@ -7,7 +7,7 @@ export default function Profile() {
             <div className="flex flex-grow overflow-hidden">
                 <Sidebar />
                 <div className="flex-grow p-6 overflow-hidden">
-                    <h1 className="text-3xl text-black font-bold mb-6">Profile</h1>
+                    <h1 className="text-3xl text-black font-medium mb-6">Profile</h1>
                     <div className="bg-white rounded-lg shadow-md p-16">
                         <div className="flex flex-col justify-center items-center mb-6">
                             <div className=" flex items-center justify-center mb-4">
@@ -18,16 +18,16 @@ export default function Profile() {
                         <form className="space-y-6 max-w-3xl mx-auto">
                             <div className="flex-col gap-6">
                                 <div>
-                                    <label className="block text-gray-900 font-satoshiBold mb-2" htmlFor="first-name">Full name (Creative Director)</label>
+                                    <label className="block text-black font-bold mb-2" htmlFor="first-name">Full name (Creative Director)</label>
                                     <input
                                         type="text"
                                         id="full-name"
                                         placeholder="Kofi Poku"
-                                        className="w-full px-4 py-2 text-[#A6A6A6] border bg-[#6060601A] rounded-md"
+                                        className="w-full px-4 py-2 text-black border bg-[#6060601A] rounded-md"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-900 font-satoshiBold mb-2" htmlFor="last-name">Bio</label>
+                                    <label className="block text-black font-bold mb-2" htmlFor="last-name">Bio</label>
                                     <input
                                         type="text"
                                         id="bio"
@@ -36,7 +36,7 @@ export default function Profile() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-900 font-satoshiBold mb-2" htmlFor="phone">Phone</label>
+                                    <label className="block text-black font-bold mb-2" htmlFor="phone">Phone</label>
                                     <input
                                         type="tel"
                                         id="phone"
