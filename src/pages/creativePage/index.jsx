@@ -1,14 +1,16 @@
+// CreativePage.js
+
 import React from 'react';
 import pattern from '../../assets/images/pattern.svg';
 import logo from '../../assets/images/logo.jpg';
 import Brand from './components/brand';
 import ViewProfile from './components/viewProfile';
 import mj from '../../assets/images/mj.jpg';
+import ltwo from '../../assets/images/ltwo.jpg'
+import lfive from '../../assets/images/lfive.jpg'
+import lthree from '../../assets/images/lthree.jpg'
 import Gallery from './components/gallery';
-import lfive from '../../assets/images/lfive.jpg';
-import lthree from '../../assets/images/lthree.jpg';
-import lsix from '../../assets/images/lsix.jpg';
-import ltwo from '../../assets/images/ltwo.jpg';
+import { cproducts } from '../creativePage/components/cproducts'; // import cproducts from productData.js
 import Shop from './components/shop';
 import { Link } from 'react-router-dom';
 
@@ -67,35 +69,27 @@ const CreativePage = () => {
           <Gallery image={ltwo} description="Fashion & Apparel" />
         </div>
       </div>
-           {/* Shop Section */}
-           <div className="p-8 bg-black flex flex-col items-center mt-16">
-                <h3 className="text-center text-4xl font-semibold pb-14">Shop</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <Shop
-                        productImage={lsix}
-                        productName="African Ancestry"
-                        price="$500.00"
-                        productDescription="A beautiful piece celebrating African heritage."
-                        cta="Add to Cart"
-                    />
-                    <Shop
-                        productImage={lsix}
-                        productName="Akan"
-                        price="$200.00"
-                        productDescription="A vibrant artwork representing Akan culture."
-                        cta="Add to Cart"
-                    />
-                    <Shop
-                        productImage={lsix}
-                        productName="Apam"
-                        price="$150.00"
-                        productDescription="A serene aerial view of Apam fishing village."
-                        cta="Add to Cart"
-                    />
-                </div>
-                <Link to='/productspage'><button  className="mt-6 border border-white text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition" >View all</button></Link>
-            </div>
+
+      {/* Shop Section */}
+      <div className="p-8 bg-black flex flex-col items-center mt-16">
+        <h3 className="text-center text-4xl font-semibold pb-14">Shop</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cproducts.slice(0, 3).map((product) => (
+            <Shop
+              key={product.id}
+              productImage={product.productImage}
+              productName={product.productName}
+              price={product.price}
+              productDescription={product.productDescription}
+              cta="Add to Cart"
+            />
+          ))}
         </div>
+        <Link to='/productspage'>
+          <button className="mt-6 border border-white text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition">View all</button>
+        </Link>
+      </div>
+    </div>
   );
 }
 

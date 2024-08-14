@@ -151,7 +151,7 @@ const Payment = () => {
               <button className="px-6 py-2 bg-gray-300 text-gray-900 rounded-lg">
                 CANCEL
               </button>
-              <button className="px-6 py-2 bg-green-500 text-white rounded-lg">
+              <button className="px-6 py-2 bg-teal-500 text-white rounded-lg">
                 SAVE
               </button>
             </div>
