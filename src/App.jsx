@@ -15,6 +15,11 @@ import CreativePage from './pages/creativePage';
 import Creatives from './pages/creativePage/creatives';
 import ProductsPage from './pages/creativePage/components/productsPage';
 import ProductDetails from './pages/creativePage/components/productDetails';
+import AllCreatives from './pages/allCreatives';
+import AllEvents from './pages/allCreatives/components/allEvents';
+import Gallery from './pages/creativePage/components/gallery';
+import DGallery from './pages/dashboard/pages/dGallery';
+import Orders from './pages/dashboard/pages/orders';
 
 
 function App() {
@@ -90,6 +95,22 @@ function App() {
     {
       path:"/products/:productId",
       element: <ProductDetails />
+    }, 
+    {
+      path:"/allcreatives",
+      element: <AllCreatives />
+    }, 
+    {
+      path:"/dgallery",
+      element: <DGallery/>
+    }, 
+    {
+      path:"/allevents",
+      element: <AllEvents />
+    }, 
+    {
+      path:"/orders",
+      element: <Orders />
     }, 
   ]);
 

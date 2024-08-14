@@ -11,7 +11,7 @@ const ProductDetails= () => {
             name: 'African Ancestry',
             price: '$500.00',
             description: 'A beautiful piece celebrating African heritage.',
-            images: [lsix, lsix, lsix], // Replace with actual product images
+            images: [lsix, lsix, lsix], 
         },
         "2": {
             name: 'African Ancestry',
