@@ -1,4 +1,4 @@
-// AllCreatives.js
+
 import React, { useState } from 'react';
 import doodle from '../../assets/images/doodle.svg';
 import { IoSearchOutline, IoFilterOutline } from 'react-icons/io5';
@@ -65,7 +65,7 @@ const AllCreatives = () => {
       >
         <div className="mx-auto flex justify-between items-center h-full bg-black bg-opacity-75">
           <div className="text-2xl font-sans text-white ml-8">
-            <h1 className="font-bold text-xl">Tale-net</h1>
+          <Link to='/'><h1 className="text-xl font-bold">Tale-net</h1></Link>
           </div>
           <div className="flex-1 flex items-center justify-end px-4 relative">
             {/* Search Bar with Icon Inside */}

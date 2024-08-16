@@ -60,21 +60,21 @@ export default function Sidebar() {
                             </li>
                         </Link>
 
-                        <Link to='/product'>
+                        <Link to='/add-product'>
                             <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
                                 <ShoppingBagIcon className='h-6 w-6 text-white' />
                                 <span className={`${isCollapsed ? 'hidden' : 'block'} text-white text-[18px]`}>Product</span>
                             </li>
                         </Link>
 
-                        <Link to='/dgallery'>
+                        <Link to='/add-gallery'>
                             <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
                                 <PhotoIcon className='h-6 w-6 text-white' />
                                 <span className={`${isCollapsed ? 'hidden' : 'block'} text-white text-[18px]`}>Gallery</span>
                             </li>
                         </Link>
 
-                        <Link to='/event'>
+                        <Link to='/add-event'>
                             <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
                                 <CalendarDaysIcon className='h-6 w-6 text-white' />
                                 <span className={`${isCollapsed ? 'hidden' : 'block'} text-white text-[18px]`}>Event</span>

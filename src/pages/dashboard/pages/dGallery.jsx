@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Sidebar from '../../../components/sidebar';
+import { useNavigate } from 'react-router-dom';
 
 const DGallery = () => {
     const [images, setImages] = useState([]);
+    const navigate = useNavigate();
     const [descriptions, setDescriptions] = useState([]);
 
     const handleImageChange = (e) => {
@@ -24,6 +26,15 @@ const DGallery = () => {
         setImages(newImages);
         setDescriptions(newDescriptions);
     };
+
+    const handleUpload = () => {
+
+        navigate('/add-gallery')
+    }
+
+    const handleCancel = () => {
+        navigate('/add-gallery')
+    }
 
     return (
         <div className="bg-white min-h-screen flex">
@@ -65,8 +76,8 @@ const DGallery = () => {
                         ))}
                     </div>
                     <div className="flex justify-end space-x-4 mt-8">
-                        <button className="px-6 py-2 bg-gray-300 text-gray-900 rounded-lg">CANCEL</button>
-                        <button className="px-6 py-2 bg-black text-white rounded-lg">UPLOAD</button>
+                        <button className="px-6 py-2 bg-gray-300 text-gray-900 rounded-lg" onClick={handleCancel}>CANCEL</button>
+                        <button className="px-6 py-2 bg-black text-white rounded-lg" onClick={handleUpload}>UPLOAD</button>
                     </div>
                 </div>
             </div>

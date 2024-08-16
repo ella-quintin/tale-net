@@ -21,8 +21,8 @@ const CreativePage = () => {
       <header className="p-4 flex justify-between items-center bg-black">
         <Link to='/'><h1 className="text-xl font-bold">Tale-net</h1></Link>
         <nav className="space-x-8">
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">Bio</a>
+        <Link to='/allcreatives'><a href="#" className="hover:underline">Home</a></Link>
+          <Link to='/creativepage'><a href="#" className="hover:underline">Profile</a></Link>
           <a href="#" className="hover:underline">Gallery</a>
           <Link to='/productspage'><a href="#" className="hover:underline">Marketplace</a></Link>
           <a href="#" className="hover:underline">Report</a>

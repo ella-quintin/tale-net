@@ -1,14 +1,39 @@
 import { useState } from 'react';
+import {useForm} from  'react-hook-form'
 import { Eye, EyeOff } from 'lucide-react';
 import doodle from '../../assets/images/doodle.svg';
 import { useNavigate } from 'react-router-dom';
+import { apiLogIn } from '../../services/auth';
+
 
 const Login = () => {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const handleSignUpClick = () => {
     navigate('/signup');
   };
+  const onSubmit = async (data) => {
+    console.log(data);
+    setIsSubmitting(true);
+    try {
+      const res = await apiLogIn({
+        email: data.email,
+        password: data.password
+      })
+      console.log("Response: ", res.data);
+     
+    } catch (error) {
+      console.log(error)
+    
+    }
+    finally {
+      setIsSubmitting(false)
+    }
+  };
+
+
 
   return (
     <>
@@ -17,7 +42,7 @@ const Login = () => {
         <div className="flex justify-center items-center w-full">
           <div className="bg-black border border-white shadow-lg mt-3 p-6">
             <h3 className="text-4xl mb-5 text-white">Login</h3>
-            <form className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-white">Email</label>
                 <input
@@ -25,6 +50,9 @@ const Login = () => {
                   id="email"
                   placeholder="Enter your email"
                   className="w-96 px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-gray-700"
+                  {
+                    ...register("email", { required: "Email is required" })
+                    }
                 />
               </div>
               <div>
@@ -34,12 +62,16 @@ const Login = () => {
                   id="password"
                   placeholder="Password"
                   className="w-96 px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-gray-700"
+                  {
+                    ...register("password", { required: "Password is required" })
+                    }
                 />
               </div>
               <div className="flex justify-end text-sm">
                 <button type="button" className="text-gray-400">Forgot password?</button>
               </div>
-              <button className='bg-red-600 px-3 py-2 w-96 rounded-md mt-6 text-white hover:bg-red-500'>Login</button>
+              <button
+              type='submit' className='bg-red-600 px-3 py-2 w-96 rounded-md mt-6 text-white hover:bg-red-500'>Login</button>
             </form>
             <div className="mt-6 flex items-center justify-center space-x-3">
               <div className="h-px bg-gray-700 w-full"></div>
@@ -52,7 +84,7 @@ const Login = () => {
             </button>
             <div className="mt-6 text-center text-sm">
               <span className="text-gray-400">Don't have an account yet? </span>
-              <button onClick={handleSignUpClick} className="text-white">Sign up here</button>
+              <button onClick={handleSignUpClick} className="text-blue-400">Sign up here</button>
             </div>
           </div>
         </div>

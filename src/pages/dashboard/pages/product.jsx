@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Sidebar from "../../../components/sidebar";
 import profile from "../../../assets/images/profile.svg";
 
 export default function Product() {
     const [images, setImages] = useState([]);
+    const navigate = useNavigate(); 
 
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
@@ -12,6 +15,18 @@ export default function Product() {
 
     const handleImageRemove = (index) => {
         setImages(prevImages => prevImages.filter((_, i) => i !== index));
+    };
+
+    const handleUpload = () => {
+        //  logic for upload
+        // ...
+        
+        navigate('/add-product');
+    };
+
+    const handleCancel = () => {
+        // Navigate back to AddProductPage on cancel
+        navigate('/add-product');
     };
 
     return (
@@ -95,8 +110,8 @@ export default function Product() {
                         </div>
                     </form>
                     <div className="flex justify-end space-x-4 mt-8">
-                        <button className="px-6 py-2 bg-gray-300 text-gray-900 rounded-lg">CANCEL</button>
-                        <button className="px-6 py-2 bg-black text-white rounded-lg">UPLOAD</button>
+                        <button className="px-6 py-2 bg-gray-300 text-gray-900 rounded-lg" onClick={handleCancel}>CANCEL</button>
+                        <button className="px-6 py-2 bg-black text-white rounded-lg" onClick={handleUpload}>UPLOAD</button>
                     </div>
                 </div>
             </div>

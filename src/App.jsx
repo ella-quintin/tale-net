@@ -20,6 +20,11 @@ import AllEvents from './pages/allCreatives/components/allEvents';
 import Gallery from './pages/creativePage/components/gallery';
 import DGallery from './pages/dashboard/pages/dGallery';
 import Orders from './pages/dashboard/pages/orders';
+import AddProductPage from './pages/dashboard/pages/addProductPage';
+import AddGallery from './pages/dashboard/pages/addGallery';
+import AddEvent from './pages/dashboard/pages/addEvent';
+
+
 
 
 function App() {
@@ -55,14 +60,27 @@ function App() {
       element: <Company/>,
     
     }, 
+    
     {
-      path: "/product",
+      path: "product",
       element: <Product/>,
     
     }, 
     {
+      path: "/add-product",
+      element: <AddProductPage/>,
+    
+    }, 
+
+ 
+    {
       path: "/event",
       element: <Event/>,
+    
+    }, 
+    {
+      path: "/add-event",
+      element: <AddEvent/>,
     
     }, 
     {
@@ -88,10 +106,12 @@ function App() {
       path: "/creativepage",
       element: <CreativePage/>,
     }, 
+
     {
       path: "/productspage",
       element: <ProductsPage/>,
     }, 
+    
     {
       path:"/products/:productId",
       element: <ProductDetails />
@@ -111,6 +131,15 @@ function App() {
     {
       path:"/orders",
       element: <Orders />
+    }, 
+    {
+      path:"/",
+      element: <Orders />
+    }, 
+    
+    {
+      path:"add-gallery",
+      element: <AddGallery/>
     }, 
   ]);
 
