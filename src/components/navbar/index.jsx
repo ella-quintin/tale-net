@@ -1,6 +1,7 @@
 import React from 'react';
 import doodle from '../../assets/images/doodle.svg';
 import { Link } from 'react-router-dom';
+import tlogo from '../../assets/images/tlogo.png'
 
 export default function Navbar() {
     return (

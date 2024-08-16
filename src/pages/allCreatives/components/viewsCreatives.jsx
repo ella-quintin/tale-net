@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const ViewsCreatives = ({ profilePicture, bio }) => {
   return (
     <div className="flex flex-col items-center">
@@ -10,9 +12,11 @@ const ViewsCreatives = ({ profilePicture, bio }) => {
         />
       </div>
       <p className="text-white text-sm font-thin mt-3 max-w-96">{bio}</p>
+      <Link to='/creativepage'>
       <button className="mt-6 border border-white text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition">
         View Profile
       </button>
+      </Link>
     </div>
   );
 };

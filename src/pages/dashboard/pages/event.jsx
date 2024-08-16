@@ -1,7 +1,21 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from "../../../components/sidebar";
 import profile from "../../../assets/images/profile.svg"
 
 export default function Event () {
+
+    const navigate = useNavigate();
+
+    const handleUpload = () => {
+
+        navigate('/add-event')
+    }
+
+    const handleCancel = () => {
+        navigate('/add-event')
+    }
+
     return (
         <div className="bg-white min-h-screen flex flex-col">
             <div className="flex flex-grow overflow-hidden">
@@ -55,10 +69,10 @@ export default function Event () {
                                 </div>
                             </div>
                             <div className="flex space-x-4 justify-center mt-8">
-                                <button type="button" className="w-full py-2 px-4 bg-white text-[#CC212D] font-bold border border-[#CC212D] rounded-lg">
-                                    Discard
+                                <button type="button" className="w-full py-2 px-4 bg-white text-[#CC212D] font-bold border border-[#CC212D] rounded-lg" onClick={handleCancel}>
+                                    Cancel
                                 </button>
-                                <button type="submit" className="w-full py-2 px-4 bg-black text-white font-bold rounded-lg">
+                                <button type="submit" className="w-full py-2 px-4 bg-black text-white font-bold rounded-lg" onClick={handleUpload}>
                                     Save
                                 </button>
                             </div>
