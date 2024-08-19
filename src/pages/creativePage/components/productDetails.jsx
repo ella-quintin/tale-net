@@ -7,8 +7,22 @@ import mtnLogo from '../../../assets/images/mtn.png';
 import telecashLogo from '../../../assets/images/tele.png';
 import airteltigoLogo from '../../../assets/images/at.png';
 
-const ProductDetails = () => {
+
+const ProductDetails = ({ addToCart }) => {
     const { productId } = useParams();
+
+    const [isLoading, setIsLoading] = useState(false);
+    const handleAddToCart = () => {
+        setIsLoading(true);
+
+        // Simulate an async operation for API call
+        setTimeout(() => {
+            addToCart(product);
+            setIsLoading(false);
+        }, 1000);
+    };
+
+    
 
     // Mock data, replace with actual data fetch based on productId
     const productData = {
@@ -96,9 +110,17 @@ const ProductDetails = () => {
                     {/* Buy Button to Toggle Billing Details */}
                     <button
                         className="bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition mb-4"
-                        onClick={toggleBillingDetails}
+                        onClick={handleAddToCart}
+                        disabled={isLoading}
                     >
-                        BUY
+                        {isLoading ? (
+                            <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                            </svg>
+                        ) : (
+                            'Add to Cart'
+                        )}
                     </button>
 
                     {/* Billing Details Section */}

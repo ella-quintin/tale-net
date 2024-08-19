@@ -4,6 +4,8 @@ import { Eye, EyeOff } from 'lucide-react';
 import doodle from '../../assets/images/doodle.svg';
 import { useNavigate } from 'react-router-dom';
 import { apiLogIn } from '../../services/auth';
+import Loader from "../../components/loader";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
@@ -23,6 +25,8 @@ const Login = () => {
         password: data.password
       })
       console.log("Response: ", res.data);
+      toast.success(res.data.message);
+      setTimeout(() => { navigate("/dashboard") }, 5000);
      
     } catch (error) {
       console.log(error)
@@ -71,7 +75,8 @@ const Login = () => {
                 <button type="button" className="text-gray-400">Forgot password?</button>
               </div>
               <button
-              type='submit' className='bg-red-600 px-3 py-2 w-96 rounded-md mt-6 text-white hover:bg-red-500'>Login</button>
+              type='submit' className='bg-red-600 px-3 py-2 w-96 rounded-md mt-6 text-white hover:bg-red-500'>
+                {isSubmitting ? <Loader/> : "Login"}</button>
             </form>
             <div className="mt-6 flex items-center justify-center space-x-3">
               <div className="h-px bg-gray-700 w-full"></div>

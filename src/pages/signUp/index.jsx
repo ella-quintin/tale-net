@@ -3,48 +3,40 @@ import doodle from '../../assets/images/doodle.svg';
 import { useNavigate } from 'react-router-dom';
 import google from '../../assets/images/google.png'
 import { apiSignUp } from '../../services/auth';
-import {useForm} from  'react-hook-form'
+import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm(); 
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
     navigate('/login');
   };
 
- 
   const onSubmit = async (data) => {
     console.log(data);
     setIsSubmitting(true);
     try {
-
       const res = await apiSignUp({
-        firstName: data.firstName,
-        lastName: data.lastname,
+        firstname: data.firstname,
+        lastname: data.lastname,
+        username: data.username,
         email: data.email,
         password: data.password,
-        confirmPassword: data['confirm-password'], 
+        confirmpassword: data.confirmpassword,
       });
 
-    
-      if (res.status === 201 || res.status === 200) { 
-        console.log("Response: ", res.data);
-       
-        navigate('/dashboard'); 
-      } else {
-        console.log("Unexpected response status: ", res.status);
-      }
+      console.log("Response: ", res.data);
+      toast.success(res.data.message);
+      setTimeout(() => { navigate("/dashboard") }, 5000);
+      
     } catch (error) {
-      console.error("Error during sign-up: ", error);
-   
+      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
   };
-
-
 
   return (
     <>
@@ -58,24 +50,30 @@ const SignUp = () => {
               <label htmlFor="firstname" className="block text-sm font-medium text-white">First name</label>
               <input
                 type="text"
-                id="fullname"
+                id="firstname"
                 placeholder="Kofi Poku"
                 className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500"
-                {
-                ...register("firstName", { required: "First Name is required" })
-                }
+                {...register("firstname", { required: "First Name is required" })}
               />
             </div>
             <div>
-              <label htmlFor="Lastname" className="block text-sm font-medium text-white">Last name</label>
+              <label htmlFor="lastname" className="block text-sm font-medium text-white">Last name</label>
               <input
                 type="text"
                 id="lastname"
                 placeholder="Kofi Poku"
                 className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500"
-                {
-                ...register("lastname", { required: "lastname is required" })
-                }
+                {...register("lastname", { required: "Last Name is required" })}
+              />
+            </div>
+            <div>
+              <label htmlFor="username" className="block text-sm font-medium text-white">Username</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="kofi"
+                className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500"
+                {...register("username", { required: "Username is required" })}
               />
             </div>
             <div>
@@ -84,11 +82,8 @@ const SignUp = () => {
                 type="email"
                 id="email"
                 placeholder="example@gmail.com"
-                className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500
-              "
-                {
-                ...register("email", { required: "email is required" })
-                }
+                className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500"
+                {...register("email", { required: "Email is required" })}
               />
             </div>
             <div>
@@ -98,21 +93,17 @@ const SignUp = () => {
                 id="password"
                 placeholder="Password"
                 className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500"
-                {
-                ...register("password", { required: "password is required" })
-                }
+                {...register("password", { required: "Password is required" })}
               />
             </div>
             <div>
-              <label htmlFor="confirm-password" className="block text-sm font-medium text-white">Confirm Password</label>
+              <label htmlFor="confirmpassword" className="block text-sm font-medium text-white">Confirm Password</label>
               <input
                 type="password"
-                id="confirm-password"
+                id="confirmpassword"
                 placeholder="Retype Password"
                 className="w-full px-3 py-2 mt-1 bg-white border border-gray-700 rounded-md text-black focus:outline-none focus:ring-1 focus:ring-gray-500"
-                {
-                ...register("comfirm-password", { required: "comfirm-password is required" })
-                }
+                {...register("confirmpassword", { required: "Confirm Password is required" })}
               />
             </div>
             <div className="flex items-center">
@@ -121,7 +112,7 @@ const SignUp = () => {
                 I agree to all the <span className="text-teal-400">Terms, Privacy Policy and Fees.</span>
               </label>
             </div>
-            <button className='bg-red-600 px-3 py-2 w-full rounded-md text-white hover:bg-red-700'>Create an account</button>
+            <button type='submit' className='bg-red-600 px-3 py-2 w-full rounded-md text-white hover:bg-red-700'>Create an account</button>
           </form>
           <div className="mt-6 flex items-center justify-center space-x-3">
             <div className="h-px bg-gray-700 w-full"></div>
@@ -134,9 +125,7 @@ const SignUp = () => {
           </button>
           <div className="mt-6 text-center text-sm">
             <span className="text-gray-400">Have an account? </span>
-            <button
-              tye='submit'
-              onClick={handleLoginClick} className="text-blue-400 hover:underline">Login here</button>
+            <button onClick={handleLoginClick} className="text-blue-400 hover:underline">Login here</button>
           </div>
         </div>
       </div>

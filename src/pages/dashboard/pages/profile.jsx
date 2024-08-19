@@ -62,6 +62,7 @@ export default function Profile() {
                                         disabled={!isEditing}
                                     />
                                 </div>
+                                
                                 <div>
                                     <label className="block text-black font-bold mb-2" htmlFor="bio">Bio</label>
                                     <textarea
