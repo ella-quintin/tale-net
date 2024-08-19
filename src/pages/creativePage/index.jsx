@@ -13,19 +13,31 @@ import Gallery from './components/gallery';
 import { cproducts } from '../creativePage/components/cproducts'; // import cproducts from productData.js
 import Shop from './components/shop';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
+import tlogo from '../../assets/images/tlogo.png';
 
-const CreativePage = () => {
+
+const CreativePage = ({ cartItemsCount }) => {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       {/* Nav */}
       <header className="p-4 flex justify-between items-center bg-black">
-        <Link to='/'><h1 className="text-xl font-bold">Tale-net</h1></Link>
-        <nav className="space-x-8">
-        <Link to='/allcreatives'><a href="#" className="hover:underline">Home</a></Link>
-          <Link to='/creativepage'><a href="#" className="hover:underline">Profile</a></Link>
-          <a href="#" className="hover:underline">Gallery</a>
+      <div className="ml-8 h-14 flex items-center pr-12 pl-12 ">
+                    <img className='w-60 h-auto' src={tlogo} alt="Logo" />
+                </div>
+        <nav className="space-x-8 flex items-center">
+          <Link to='/'><a href="#" className="hover:underline">Home</a></Link>
+          <Link to='/allcreatives'><a href="#" className="hover:underline">View all Creatives</a></Link>
           <Link to='/productspage'><a href="#" className="hover:underline">Marketplace</a></Link>
           <a href="#" className="hover:underline">Report</a>
+          <Link to='/cart'>
+          <div className="relative ">
+            <FaShoppingCart className="text-white text-2xl" />
+            <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+              {cartItemsCount}
+            </span>
+          </div>
+          </Link>
         </nav>
       </header>
 
@@ -56,7 +68,7 @@ const CreativePage = () => {
           profilePicture={mj}
           fullName='Julie Baidoe - Ansah'
           position='Creative Director'
-          bio='Who said your clothes can’t tell a story or challenge mindsets? Our Sankofa Collection is a work of art and it depicts our strong values of creating a better-unified world for the Efata Woman. It’s a style affair!' 
+          bio='Who said your clothes can’t tell a story or challenge mindsets? Our Sankofa Collection is a work of art and it depicts our strong values of creating a better-unified world for the Efata Woman. It’s a style affair!'
         />
       </div>
 
@@ -89,7 +101,7 @@ const CreativePage = () => {
           <button className="mt-6 border border-white text-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition">View all</button>
         </Link>
       </div>
-    </div>
+    </div >
   );
 }
 

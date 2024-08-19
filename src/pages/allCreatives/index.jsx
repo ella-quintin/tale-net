@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import doodle from '../../assets/images/doodle.svg';
 import { IoSearchOutline, IoFilterOutline } from 'react-icons/io5';
@@ -6,7 +5,9 @@ import ViewsCreatives from './components/viewsCreatives';
 import mj from '../../assets/images/mj.jpg';
 import cTwo from '../../assets/images/cTwo.jpg';
 import { Link } from 'react-router-dom';
-import UpcomingEvents from '../allCreatives/components/upcomingEvents'
+import eOne from '../../assets/images/eOne.jpg'
+import CountdownTimer from './components/countdownTimer'
+import tlogo from '../../assets/images/tlogo.png';
 
 const AllCreatives = () => {
   // State to manage selected category
@@ -64,8 +65,8 @@ const AllCreatives = () => {
         }}
       >
         <div className="mx-auto flex justify-between items-center h-full bg-black bg-opacity-75">
-          <div className="text-2xl font-sans text-white ml-8">
-          <Link to='/'><h1 className="text-xl font-bold">Tale-net</h1></Link>
+          <div className="ml-8 bg-black h-full flex items-center pr-12 pl-12 ">
+            <img className='w-60 h-auto' src={tlogo} alt="Logo" />
           </div>
           <div className="flex-1 flex items-center justify-end px-4 relative">
             {/* Search Bar with Icon Inside */}
@@ -91,9 +92,8 @@ const AllCreatives = () => {
                       <li
                         key={category}
                         onClick={() => handleCategoryChange(category)}
-                        className={`px-4 py-2 cursor-pointer hover:bg-gray-200 ${
-                          selectedCategory === category ? 'bg-gray-200' : ''
-                        }`}
+                        className={`px-4 py-2 cursor-pointer hover:bg-gray-200 ${selectedCategory === category ? 'bg-gray-200' : ''
+                          }`}
                       >
                         {category}
                       </li>
@@ -103,8 +103,8 @@ const AllCreatives = () => {
               </div>
             )}
           </div>
-          <div className="flex items-center gap-6 text-lg font-normal text-white mr-8">
-            <h3 className="cursor-pointer">All Creatives</h3>
+          <div className="flex items-center gap-6 text-md font-normal text-white mr-8">
+            <Link to='/'><h3 className="cursor-pointer">Home</h3></Link>
             <Link to="/allevents">
               <h3 className="cursor-pointer">Events</h3>
             </Link>
@@ -113,22 +113,41 @@ const AllCreatives = () => {
         </div>
       </nav>
 
-      {/* Welcome Text Section */}
-      <div className="flex flex-col items-center justify-center h-screen text-center mt-14">
-        <h3 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold">
-          Welcome to the Hub of Creatives
-        </h3>
-        <p className="text-teal-500 text-xl mt-5">
-          Shop, interact and discover events from your favorite creatives
-        </p>
-      </div>
-
       {/* Upcoming Events Section */}
-      <UpcomingEvents events={events} />
+      <div className="flex items-center justify-center text-center mt-14">
+        <Link to="/upcomingevent" className="flex items-center gap-8">
+          <img
+            src={eOne}
+            alt="Africa Creative Market"
+            className="w-80 max-w-lg mt-32 rounded-md shadow-md"
+          />
+          <div className='flex flex-col mt-20'>
+            <p className='text-white font-bold text-left'>Upcoming Event</p>
+            <h3 className="text-white text-6xl  font-semibold">
+              OSAGYEFO MADE IN
+            </h3>
+            <h3 className="text-white text-5xl text-left font-semibold">
+              GHANA FAIR
+            </h3>
+            <p className="text-white text-left text-xl mt-10">
+              Sales & Exhibition
+            </p>
+            <p className="text-green-500 text-left text-xl">
+              Sept 21, 2024 | Kwame Nkrumah Memorial Park.
+            </p>
+            {/* Countdown Timer Component */}
+            <span className='flex left gap-4'>
+              <button className='bg-red-600 text-white rounded-2xl py-3 px-4 text-lg w-36 mt-4'>Register</button>
+              <button className='border border-white text-white rounded-2xl py-3 px-4 w-72 mt-4'>Watch Video Hightlight</button>
+            </span>
+            <CountdownTimer targetDate="2024-09-21T00:00:00" />
+          </div>
+        </Link>
+      </div>
 
       {/* Creatives Section */}
       <div className="mt-52 px-4 md:px-8 lg:px-12">
-      <h3 className="text-4xl text-center text-white mb-8">Creatives</h3>
+        <h3 className="text-4xl text-center text-white mb-8">Creatives</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ViewsCreatives
             profilePicture={mj}

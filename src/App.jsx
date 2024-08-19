@@ -18,21 +18,36 @@ import ProductDetails from './pages/creativePage/components/productDetails';
 import AllCreatives from './pages/allCreatives';
 import AllEvents from './pages/allCreatives/components/allEvents';
 import Gallery from './pages/creativePage/components/gallery';
+import CartPage from './pages/creativePage/components/cart';
 import DGallery from './pages/dashboard/pages/dGallery';
 import Orders from './pages/dashboard/pages/orders';
 import AddProductPage from './pages/dashboard/pages/addProductPage';
 import AddGallery from './pages/dashboard/pages/addGallery';
 import AddEvent from './pages/dashboard/pages/addEvent';
+import AboutUs from './pages/landing/components/aboutUs';
+import { useState} from 'react';
+import SubscriptionPage from './pages/landing/components/subscriptionPage';
 
 
 
 
 function App() {
 
+  const [cartItems, setCartItems] = useState([]);
+  
+  const addToCart = (product) => {
+    setCartItems((prevItems) => [...prevItems, product]);
+  };
+
   const router= createBrowserRouter([
     {
       path: "/",
       element: <Landing/>,
+    
+    }, 
+    {
+      path: "/about-us",
+      element: <AboutUs/>,
     
     }, 
     {
@@ -62,7 +77,7 @@ function App() {
     }, 
     
     {
-      path: "product",
+      path: "/product",
       element: <Product/>,
     
     }, 
@@ -104,17 +119,17 @@ function App() {
     }, 
     {
       path: "/creativepage",
-      element: <CreativePage/>,
+      element: <CreativePage cartItemsCount={cartItems.length}/>,
     }, 
 
     {
       path: "/productspage",
-      element: <ProductsPage/>,
+      element: <ProductsPage cartItemsCount={cartItems.length}/>,
     }, 
     
     {
       path:"/products/:productId",
-      element: <ProductDetails />
+      element: <ProductDetails addToCart={addToCart} />
     }, 
     {
       path:"/allcreatives",
@@ -136,10 +151,18 @@ function App() {
       path:"/",
       element: <Orders />
     }, 
+    {
+      path:"/cart",
+    element:<CartPage cart={cartItems}  />
+    }, 
     
     {
-      path:"add-gallery",
+      path:"/add-gallery",
       element: <AddGallery/>
+    }, 
+    {
+      path:"/subscription",
+      element: <SubscriptionPage/>
     }, 
   ]);
 
