@@ -24,6 +24,7 @@ import tlogo from '../../assets/images/tlogo.png';
 import AboutUs from './components/aboutUs';
 import { Link } from 'react-router-dom';
 
+
 const Landing = () => {
     return (
         <>

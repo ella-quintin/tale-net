@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const DGallery = () => {
     const [images, setImages] = useState([]);
-    const navigate = useNavigate();
     const [descriptions, setDescriptions] = useState([]);
+    const navigate = useNavigate();
 
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
@@ -28,13 +28,20 @@ const DGallery = () => {
     };
 
     const handleUpload = () => {
-
-        navigate('/add-gallery')
-    }
+        // Save to local storage
+        const existingImages = JSON.parse(localStorage.getItem('galleryImages')) || [];
+        const newGalleryData = images.map((image, index) => ({
+            src: image,
+            description: descriptions[index] || ''
+        }));
+        const updatedGalleryData = [...existingImages, ...newGalleryData];
+        localStorage.setItem('galleryImages', JSON.stringify(updatedGalleryData));
+        navigate('/add-gallery'); // Navigate back to AddGallery page
+    };
 
     const handleCancel = () => {
-        navigate('/add-gallery')
-    }
+        navigate('/add-gallery');
+    };
 
     return (
         <div className="bg-white min-h-screen flex">

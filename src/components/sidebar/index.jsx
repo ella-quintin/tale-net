@@ -1,19 +1,9 @@
 import { useState } from 'react';
-import {
-    ArrowTopRightOnSquareIcon,
-    BuildingStorefrontIcon,
-    CalendarDaysIcon,
-    PhotoIcon,
-    ShoppingBagIcon,
-    ShoppingCartIcon,
-    UserCircleIcon,
-    CreditCardIcon,
-    Bars3Icon
-} from '@heroicons/react/24/outline';
+import { ArrowTopRightOnSquareIcon, BuildingStorefrontIcon, CalendarDaysIcon, PhotoIcon, ShoppingBagIcon, ShoppingCartIcon, UserCircleIcon, CreditCardIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import grid from '../../assets/images/grid.png';
 import logout from '../../assets/images/logout.svg'
 import { Link } from 'react-router-dom';
-import { LogOut } from 'lucide-react';
+import { LogOut, ReceiptCent, ReceiptIcon, ReceiptText } from 'lucide-react';
 
 export default function Sidebar() {
     const [isCollapsed, setIsCollapsed] = useState(true); // Default state is collapsed
@@ -21,6 +11,8 @@ export default function Sidebar() {
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
     };
+
+
 
     return (
         <div className='min-h-full max-h-screen flex'>
@@ -34,11 +26,11 @@ export default function Sidebar() {
 
                 <div className="flex py-6">
                     <ul className="space-y-2 w-full">
-                        <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
+                        <Link to='/creativepage'>  <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
                             <ArrowTopRightOnSquareIcon className='h-6 w-6 text-white' />
                             <span className={`${isCollapsed ? 'hidden' : 'block'} text-white text-[16px]`}>View Storefront</span>
                         </li>
-
+                        </Link>
                         <Link to='/dashboard'>
                             <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
                                 <img className='h-6 w-6' src={grid} alt="dashboard" />
@@ -97,24 +89,24 @@ export default function Sidebar() {
 
                         <Link to='/invoice'>
                             <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
-                                <img className='h-6 w-6' src={grid} alt="invoice" />
+                                <ReceiptText className='h-6 w-6 text-white' />
                                 <span className={`${isCollapsed ? 'hidden' : 'block'} text-white text-[18px]`}>Invoice</span>
                             </li>
                         </Link>
 
                         <Link to='/receipts'>
                             <li className="flex items-center space-x-4 p-4 hover:bg-teal-500 hover:text-black transition-colors duration-200 cursor-pointer">
-                                <img className='h-6 w-6' src={grid} alt="receipt" />
+                                <ReceiptCent className='h-6 w-6 text-white' />
                                 <span className={`${isCollapsed ? 'hidden' : 'block'} text-white text-[18px]`}>Receipt</span>
                             </li>
                         </Link>
                     </ul>
                 </div>
 
-                <div className='flex justify-between items-center flex-row px-4 py-2 bg-black rounded-b-xl text-white'>
+                <Link to='/'><div className='flex justify-between items-center flex-row px-4 py-2 bg-black rounded-b-xl text-white'>
                     <span className={`${isCollapsed ? 'hidden' : 'block'}`}>Logout</span>
-                    <LogOut className='h-6 w-6'/>
-                </div>
+                    <LogOut className='h-6 w-6' />
+                </div></Link>
             </div>
         </div>
     );

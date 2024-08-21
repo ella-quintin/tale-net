@@ -1,5 +1,7 @@
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import SignUp from './pages/signUp'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SignUp from './pages/signUp';
 import Login from './pages/login';
 import Sidebar from './components/sidebar';
 import Landing from './pages/landing';
@@ -25,152 +27,145 @@ import AddProductPage from './pages/dashboard/pages/addProductPage';
 import AddGallery from './pages/dashboard/pages/addGallery';
 import AddEvent from './pages/dashboard/pages/addEvent';
 import AboutUs from './pages/landing/components/aboutUs';
-import { useState} from 'react';
+import { useState } from 'react';
 import SubscriptionPage from './pages/landing/components/subscriptionPage';
-
-
-
+import Checkout from './pages/creativePage/components/checkout';
 
 function App() {
-
   const [cartItems, setCartItems] = useState([]);
-  
+
   const addToCart = (product) => {
     setCartItems((prevItems) => [...prevItems, product]);
   };
 
-  const router= createBrowserRouter([
+  const router = createBrowserRouter([
     {
       path: "/",
-      element: <Landing/>,
-    
-    }, 
+      element: <Landing />,
+    },
     {
       path: "/about-us",
-      element: <AboutUs/>,
-    
-    }, 
+      element: <AboutUs />,
+    },
     {
       path: "/signup",
-      element: <SignUp/>,
-    
-    }, 
+      element: <SignUp />,
+    },
     {
       path: "/login",
-      element: <Login/>,
-    
-    }, 
+      element: <Login />,
+    },
     {
       path: "/dashboard",
-      element: <Dashboard/>,
-    
-    }, 
+      element: <Dashboard />,
+    },
     {
       path: "/profile",
-      element: <Profile/>,
-    
-    }, 
+      element: <Profile />,
+    },
     {
       path: "/company",
-      element: <Company/>,
-    
-    }, 
-    
+      element: <Company />,
+    },
     {
       path: "/product",
-      element: <Product/>,
-    
-    }, 
+      element: <Product />,
+    },
     {
       path: "/add-product",
-      element: <AddProductPage/>,
-    
-    }, 
-
- 
+      element: <AddProductPage />,
+    },
     {
       path: "/event",
-      element: <Event/>,
-    
-    }, 
+      element: <Event />,
+    },
     {
       path: "/add-event",
-      element: <AddEvent/>,
-    
-    }, 
+      element: <AddEvent />,
+    },
     {
       path: "/payment",
-      element: <Payment/>,
-    
-    }, 
+      element: <Payment />,
+    },
     {
       path: "/invoice",
-      element: <Invoice/>,
-    
-    }, 
+      element: <Invoice />,
+    },
     {
       path: "/receipts",
-      element: <Receipt/>,
-    
-    }, 
+      element: <Receipt />,
+    },
     {
       path: "/creatives",
-      element: <Creatives/>,
-    }, 
+      element: <Creatives />,
+    },
     {
       path: "/creativepage",
-      element: <CreativePage cartItemsCount={cartItems.length}/>,
-    }, 
-
+      element: <CreativePage cartItemsCount={cartItems.length} />,
+    },
     {
       path: "/productspage",
-      element: <ProductsPage cartItemsCount={cartItems.length}/>,
-    }, 
-    
+      element: <ProductsPage cartItemsCount={cartItems.length} />,
+    },
     {
-      path:"/products/:productId",
-      element: <ProductDetails addToCart={addToCart} />
-    }, 
+      path: "/products/:productId",
+      element: <ProductDetails addToCart={addToCart} />,
+    },
     {
-      path:"/allcreatives",
-      element: <AllCreatives />
-    }, 
+      path: "/allcreatives",
+      element: <AllCreatives />,
+    },
     {
-      path:"/dgallery",
-      element: <DGallery/>
-    }, 
+      path: "/dgallery",
+      element: <DGallery />,
+    },
     {
-      path:"/allevents",
-      element: <AllEvents />
-    }, 
+      path: "/allevents",
+      element: <AllEvents />,
+    },
     {
-      path:"/orders",
-      element: <Orders />
-    }, 
+      path: "/orders",
+      element: <Orders />,
+    },
     {
-      path:"/",
-      element: <Orders />
-    }, 
+      path: "/",
+      element: <Orders />,
+    },
     {
-      path:"/cart",
-    element:<CartPage cart={cartItems}  />
-    }, 
-    
+      path: "/cart",
+      element: <CartPage cart={cartItems} />,
+    },
     {
-      path:"/add-gallery",
-      element: <AddGallery/>
-    }, 
+      path: "/add-gallery",
+      element: <AddGallery />,
+    },
     {
-      path:"/subscription",
-      element: <SubscriptionPage/>
-    }, 
+      path: "/subscription",
+      element: <SubscriptionPage />,
+    },
+    {
+      path: "/checkout",
+      element: <Checkout />,
+    },
   ]);
 
   return (
     <>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
+      <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar={false} 
+        newestOnTop={true} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+        theme="dark" 
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

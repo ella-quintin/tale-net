@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../../../components/sidebar";
 import profile from "../../../assets/images/profile.svg";
 import { useNavigate } from 'react-router-dom';
+import { FaEdit } from 'react-icons/fa';  // Import the edit icon
 
 export default function Profile() {
-    const [isEditing, setIsEditing] = useState(true);
+    const [isEditing, setIsEditing] = useState(false);
+    const [profilePhoto, setProfilePhoto] = useState(profile);
+    const [previewPhoto, setPreviewPhoto] = useState(null); // For previewing the selected image
     const navigate = useNavigate();
+
     const [profileData, setProfileData] = useState({
         fullName: "",
         bio: "",
         phone: "",
     });
+
+    // Load profile data from localStorage on component mount
+    useEffect(() => {
+        const storedProfileData = localStorage.getItem('profileData');
+        if (storedProfileData) {
+            setProfileData(JSON.parse(storedProfileData));
+        }
+
+        const storedProfilePhoto = localStorage.getItem('profilePhoto');
+        if (storedProfilePhoto) {
+            setProfilePhoto(storedProfilePhoto);
+        }
+    }, []);
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -20,9 +37,25 @@ export default function Profile() {
         }));
     };
 
+    const handlePhotoChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreviewPhoto(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const handleSave = (e) => {
         e.preventDefault();
-        // Here you would typically send the data to a server
+        // Save the profile data and photo to localStorage
+        localStorage.setItem('profileData', JSON.stringify(profileData));
+        if (previewPhoto) {
+            localStorage.setItem('profilePhoto', previewPhoto);
+            setProfilePhoto(previewPhoto);
+        }
         console.log("Saving profile data:", profileData);
         setIsEditing(false);
     };
@@ -32,8 +65,9 @@ export default function Profile() {
     };
 
     const handleCancel = () => {
-        navigate('/dashboard');
-    }
+        setPreviewPhoto(null); // Discard the preview if cancel is clicked
+        setIsEditing(false);
+    };
 
     return (
         <div className="bg-white min-h-screen flex flex-col">
@@ -44,8 +78,11 @@ export default function Profile() {
                     <div className="bg-white rounded-lg shadow-md p-16">
                         <div className="flex flex-col justify-center items-center mb-6">
                             <div className="flex items-center justify-center mb-4">
-                                <img src={profile} alt="Profile"/>
+                                <img src={previewPhoto || profilePhoto} alt="Profile" className="w-32 h-32 rounded-full object-cover" />
                             </div>
+                            {isEditing && (
+                                <input type="file" accept="image/*" onChange={handlePhotoChange} className="mb-4" />
+                            )}
                             <button className="text-[#CC212D] font-normal">Update Profile Photo</button>
                         </div>
                         <form className="space-y-6 max-w-3xl mx-auto" onSubmit={handleSave}>
@@ -98,7 +135,8 @@ export default function Profile() {
                                         </button>
                                     </>
                                 ) : (
-                                    <button type="button" onClick={handleEdit} className="w-48 py-2 px-4 bg-black text-white font-bold rounded-lg">
+                                    <button type="button" onClick={handleEdit} className="flex items-center justify-center w-36 py-2 px-4  bg-black text-white font-bold rounded-lg">
+                                        <FaEdit className="mr-2" />
                                         Edit
                                     </button>
                                 )}

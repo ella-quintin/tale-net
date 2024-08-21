@@ -24,16 +24,20 @@ const Login = () => {
         email: data.email,
         password: data.password
       })
+
       console.log("Response: ", res.data);
-      toast.success(res.data.message);
+      toast.success("Login has been successful");
+      
+      // Store the username in local storage
+      localStorage.setItem("username", data.username);
+      
       setTimeout(() => { navigate("/dashboard") }, 5000);
-     
+      
     } catch (error) {
-      console.log(error)
-    
-    }
-    finally {
-      setIsSubmitting(false)
+      console.log(error);
+      toast.error("Failed to create account. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -48,7 +52,7 @@ const Login = () => {
             <h3 className="text-4xl mb-5 text-white">Login</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-white">Username or Email</label>
                 <input
                   type="text"
                   id="email"
