@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaMinus, FaPlus } from 'react-icons/fa';
 import tlogo from '../../../assets/images/tlogo.png';
+import Checkout from './checkout'; 
 
 const CartPage = ({ cart, removeFromCart, updateQuantity }) => {
   const [quantities, setQuantities] = useState(cart.map(() => 1));
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);  // State to manage checkout visibility
 
   const formatPrice = (price) => {
     const numPrice = typeof price === 'string' ? parseFloat(price.replace(/[^\d.-]/g, '')) : price;
@@ -38,16 +40,24 @@ const CartPage = ({ cart, removeFromCart, updateQuantity }) => {
     setTotalPrice(calculateSubtotal());
   }, [quantities, cart]);
 
+  const handleCheckoutClick = () => {
+    setIsCheckoutVisible(true);
+  };
+
+  const closeCheckout = () => {
+    setIsCheckoutVisible(false);
+  };
+
   return (
-    <div className="min-h-screen bg-black text-white p-8">
+    <div className="min-h-screen bg-black text-white p-8 relative">
       <header className="p-4 flex justify-between items-center bg-black">
         <div className="ml-8 h-14 flex items-center pr-12 pl-12 ">
           <img className='w-60 h-auto' src={tlogo} alt="Logo" />
         </div>
         <nav className="space-x-8 flex items-center">
-          <Link to='/allcreatives'><a href="#" className="hover:underline">Home</a></Link>
+          <Link to='/'><a href="#" className="hover:underline">Home</a></Link>
+          <Link to='/allcreatives'><a href="#" className="hover:underline">View all Creatives</a></Link>
           <Link to='/creativepage'><a href="#" className="hover:underline">Profile</a></Link>
-          <a href="#" className="hover:underline">Gallery</a>
           <Link to='/productspage'><a href="#" className="hover:underline">Marketplace</a></Link>
           <a href="#" className="hover:underline">Report</a>
           <Link to='/cart'>
@@ -99,7 +109,7 @@ const CartPage = ({ cart, removeFromCart, updateQuantity }) => {
             <p>Free delivery</p>
             <p className="text-sm"> Express items are eligible for free delivery</p>
           </div>
-          <button className="w-full bg-red-600 text-white py-2 rounded font-bold">
+          <button onClick={handleCheckoutClick} className="w-full bg-red-600 text-white py-2 rounded font-bold">
             CHECKOUT (GHC {totalPrice})
           </button>
           <div className="mt-4">
@@ -107,6 +117,21 @@ const CartPage = ({ cart, removeFromCart, updateQuantity }) => {
             <p className="text-sm text-gray-400">Free 7 days return if eligible Details</p>
           </div>
         </div>
+      </div>
+
+      {/* Overlay */}
+      {isCheckoutVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-30" onClick={closeCheckout}></div>
+      )}
+
+      {/* Checkout Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-69 bg-gray-900 p-8 z-40 transform transition-transform duration-300 ${
+          isCheckoutVisible ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <button onClick={closeCheckout} className="text-white mb-4">Close</button>
+        <Checkout />
       </div>
     </div>
   );

@@ -3,9 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import lsix from '../../../assets/images/lsix.jpg';
 import lfive from '../../../assets/images/lfive.jpg';
 import lthree from '../../../assets/images/lthree.jpg';
-import mtnLogo from '../../../assets/images/mtn.png';
-import telecashLogo from '../../../assets/images/tele.png';
-import airteltigoLogo from '../../../assets/images/at.png';
+import cbOne from '../../../assets/images/cbOne.jpg' 
+import cbOpen from '../../../assets/images/cbOpen.jpg' 
+import cbBack from '../../../assets/images/cbBack.jpg' 
+
+
 
 
 const ProductDetails = ({ addToCart }) => {
@@ -22,19 +24,17 @@ const ProductDetails = ({ addToCart }) => {
         }, 1000);
     };
 
-    
-
     // Mock data, replace with actual data fetch based on productId
     const productData = {
         "1": {
-            name: 'African Ancestry',
-            price: 'GH₵500.00',
-            description: 'A beautiful piece celebrating African heritage.',
-            images: [lsix, lfive, lthree],
+            name: 'Brown Laser Cut Wooden Clutch',
+            price: 'GH₵350.00',
+            description: 'A Laser cut beautiful piece.',
+            images: [cbOne, cbOpen, cbBack],
         },
         "2": {
             name: 'African Ancestry',
-            price: 'GH₵500.00',
+            price: 'GH₵350.00',
             description: 'A beautiful piece celebrating African heritage.',
             images: [lsix, lsix, lsix], // Replace with actual product images
         },
@@ -122,173 +122,6 @@ const ProductDetails = ({ addToCart }) => {
                             'Add to Cart'
                         )}
                     </button>
-
-                    {/* Billing Details Section */}
-                    {showBillingDetails && (
-                        <>
-                            <h3 className='text-teal-500 text-2xl font-bold text-center'>Billing Details</h3>
-                            <form className="mt-4">
-                                <div className="mb-4">
-                                    <label className="block text-sm font-bold mb-2" htmlFor="fullname">
-                                        Full Name
-                                    </label>
-                                    <input
-                                        className="w-full p-2 text-white rounded-md border-2 bg-black"
-                                        type="text"
-                                        name="fullname"
-                                        id="fullname"
-                                        value={formData.fullname}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter your full name"
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-4">
-                                    <label className="block text-sm font-bold mb-2" htmlFor="email">
-                                        Email
-                                    </label>
-                                    <input
-                                        className="w-full p-2 text-white rounded-md border-2 bg-black"
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter your email"
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-4">
-                                    <label className="block text-sm font-bold mb-2" htmlFor="phone">
-                                        Phone Number
-                                    </label>
-                                    <input
-                                        className="w-full p-2 text-white rounded-md border-2 bg-black"
-                                        type="tel"
-                                        name="phone"
-                                        id="phone"
-                                        value={formData.phone}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter your phone number"
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-4">
-                                    <label className="block text-sm font-bold mb-2" htmlFor="location">
-                                        Location
-                                    </label>
-                                    <input
-                                        className="w-full p-2 text-white rounded-md border-2 bg-black"
-                                        type="text"
-                                        name="location"
-                                        id="location"
-                                        value={formData.location}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter your location"
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-4">
-                                    <label className="block text-sm font-bold mb-2" htmlFor="paymentMethod">
-                                        Payment Method
-                                    </label>
-
-                                    <div className='flex gap-3'>
-                                        <div className="flex items-center">
-                                            <input
-                                                className="mr-2 leading-tight"
-                                                type="radio"
-                                                name="paymentMethod"
-                                                id="mobile-money"
-                                                value="mobile-money"
-                                                checked={formData.paymentMethod === 'mobile-money'}
-                                                onChange={handleInputChange}
-                                            />
-                                            <label className="text-sm" htmlFor="mobile-money">
-                                                Mobile Money
-                                            </label>
-                                        </div>
-
-                                        <div className="flex items-center ">
-                                            <input
-                                                className="mr-2 leading-tight"
-                                                type="radio"
-                                                name="paymentMethod"
-                                                id="bank"
-                                                value="Bank"
-                                                checked={formData.paymentMethod === 'Bank'}
-                                                onChange={handleInputChange}
-                                            />
-                                            <label className="text-sm" htmlFor="Bank">
-                                                Bank
-                                            </label>
-                                        </div>
-
-                                        <div className="flex items-center">
-                                            <input
-                                                className="mr-2 leading-tight"
-                                                type="radio"
-                                                name="paymentMethod"
-                                                id="cash-on-delivery"
-                                                value="cash-on-delivery"
-                                                checked={formData.paymentMethod === 'cash-on-delivery'}
-                                                onChange={handleInputChange}
-                                            />
-                                            <label className="text-sm" htmlFor="cash-on-delivery">
-                                                Cash on Delivery
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {formData.paymentMethod === 'mobile-money' && (
-                                    <div className="mb-4">
-                                        <label className="block text-sm font-bold mb-2">
-                                            Select Mobile Money Provider
-                                        </label>
-                                        <div className="flex space-x-4">
-                                            <div className="flex items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="mobileMoneyProvider"
-                                                    value="mtn"
-                                                    checked={formData.mobileMoneyProvider === 'mtn'}
-                                                    onChange={() => handleProviderChange('mtn')}
-                                                    className="mr-2"
-                                                />
-                                                <img src={mtnLogo} alt="MTN Mobile Money" className="w-20 h-10" />
-                                            </div>
-                                            <div className="flex items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="mobileMoneyProvider"
-                                                    value="telecash"
-                                                    checked={formData.mobileMoneyProvider === 'telecash'}
-                                                    onChange={() => handleProviderChange('telecash')}
-                                                    className="mr-2"
-                                                />
-                                                <img src={telecashLogo} alt="Telecash" className="bg-white rounded-md w-20 h-10" />
-                                            </div>
-                                            <div className="flex items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="mobileMoneyProvider"
-                                                    value="airteltigo"
-                                                    checked={formData.mobileMoneyProvider === 'airteltigo'}
-                                                    onChange={() => handleProviderChange('airteltigo')}
-                                                    className="mr-2"
-                                                />
-                                                <img src={airteltigoLogo} alt="AirtelTigo Money" className="bg-white rounded-md h-10" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                <button className=" mt-3 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-500 transition">
-                                    Proceed to Checkout
-                                </button>
-                            </form>
-                        </>
-                    )}
                 </div>
             </div>
         </div>

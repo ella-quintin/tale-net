@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import eOne from '../../assets/images/eOne.jpg'
 import CountdownTimer from './components/countdownTimer'
 import tlogo from '../../assets/images/tlogo.png';
+import edna from '../../assets/images/edna.jfif'
+import me  from '../../assets/images/me.jpg'
+
 
 const AllCreatives = () => {
   // State to manage selected category
@@ -150,16 +153,22 @@ const AllCreatives = () => {
         <h3 className="text-4xl text-center text-white mb-8">Creatives</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ViewsCreatives
-            profilePicture={mj}
-            bio="Who said your clothes can’t tell a story or challenge mindsets? Our Sankofa Collection is a work of art and it depicts our strong values of creating a better-unified world for the Efata Woman. It’s a style affair!"
-          />
-          <ViewsCreatives
             profilePicture={cTwo}
-            bio="Creative Director"
+            name='Abena'
+            bio="Creactive Director"
+            brand='Cut & Craft'
           />
           <ViewsCreatives
             profilePicture={mj}
+            name='Julie Baidoe-Ansah'
             bio="Creative Director"
+            brand='Efata By Juba'
+          />
+          <ViewsCreatives
+            profilePicture={edna}
+            name='Edna (the shoemakergurl)'
+            bio="Creative Director"
+            brand='Ahofade'
           />
         </div>
       </div>

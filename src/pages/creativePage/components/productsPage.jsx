@@ -16,9 +16,8 @@ const ProductsPage = ({ cartItemsCount }) => {
                         <img className='w-60 h-auto' src={tlogo} alt="Logo" />
                     </div>
                     <nav className="space-x-8 flex items-center">
-                        <Link to='/allcreatives'><a href="#" className="hover:underline">Home</a></Link>
+                        <Link to='/'><a href="#" className="hover:underline">Home</a></Link>
                         <Link to='/creativepage'><a href="#" className="hover:underline">Profile</a></Link>
-                        <a href="#" className="hover:underline">Gallery</a>
                         <Link to='/productspage'><a href="#" className="hover:underline">Marketplace</a></Link>
                         <a href="#" className="hover:underline">Report</a>
                         <Link to='/cart'>
