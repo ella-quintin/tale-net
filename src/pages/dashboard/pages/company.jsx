@@ -161,6 +161,15 @@ export default function Company() {
 
                                 <div>
                                     <label className="block text-black font-bold mb-2" htmlFor="socials">Socials Links</label>
+                                    <span>Whatsapp</span>
+                                    <input
+                                        type="url"
+                                        id="whatsapp"
+                                        className="w-full px-4 py-2 bg-[#6060601A] text-black border rounded-md"
+                                        value={companyData.whatsapp}
+                                        onChange={handleInputChange}
+                                        disabled={!isEditing}
+                                    />
                                     <span>Instagram</span>
                                     <input
                                         type="url"
@@ -170,24 +179,8 @@ export default function Company() {
                                         onChange={handleInputChange}
                                         disabled={!isEditing}
                                     />
-                                    <span>Twitter</span>
-                                    <input
-                                        type="url"
-                                        id="twitter"
-                                        className="w-full px-4 py-2 bg-[#6060601A] text-black border rounded-md"
-                                        value={companyData.twitter}
-                                        onChange={handleInputChange}
-                                        disabled={!isEditing}
-                                    />
-                                    <span>Tiktok</span>
-                                    <input
-                                        type="url"
-                                        id="tiktok"
-                                        className="w-full px-4 py-2 bg-[#6060601A] text-black border rounded-md"
-                                        value={companyData.tiktok}
-                                        onChange={handleInputChange}
-                                        disabled={!isEditing}
-                                    />
+
+                                   
                                     <span>Facebook</span>
                                     <input
                                         type="url"

@@ -3,6 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import lsix from '../../../assets/images/lsix.jpg';
 import lfive from '../../../assets/images/lfive.jpg';
 import lthree from '../../../assets/images/lthree.jpg';
+import cbOne from '../../../assets/images/cbOne.jpg' 
+import cbOpen from '../../../assets/images/cbOpen.jpg' 
+import cbBack from '../../../assets/images/cbBack.jpg' 
+
 
 
 
@@ -23,14 +27,14 @@ const ProductDetails = ({ addToCart }) => {
     // Mock data, replace with actual data fetch based on productId
     const productData = {
         "1": {
-            name: 'African Ancestry',
-            price: 'GH₵500.00',
-            description: 'A beautiful piece celebrating African heritage.',
-            images: [lsix, lfive, lthree],
+            name: 'Brown Laser Cut Wooden Clutch',
+            price: 'GH₵350.00',
+            description: 'A Laser cut beautiful piece.',
+            images: [cbOne, cbOpen, cbBack],
         },
         "2": {
             name: 'African Ancestry',
-            price: 'GH₵500.00',
+            price: 'GH₵350.00',
             description: 'A beautiful piece celebrating African heritage.',
             images: [lsix, lsix, lsix], // Replace with actual product images
         },

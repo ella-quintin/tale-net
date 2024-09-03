@@ -15,6 +15,11 @@ import Shop from './components/shop';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import tlogo from '../../assets/images/tlogo.png';
+import cTwo from '../../assets/images/cTwo.jpg';
+import me  from '../../assets/images/me.jpg'
+import gOne from '../../assets/images/gOne.jpg'
+import gTwo from '../../assets/images/gTwo.jpg'
+import gThree from '../../assets/images/gThree.jpg'
 
 
 const CreativePage = ({ cartItemsCount }) => {
@@ -52,11 +57,12 @@ const CreativePage = ({ cartItemsCount }) => {
         <div className="absolute top-40 left-1/2 transform -translate-x-1/2">
           <Brand
             logo={logo}
-            brandName="Efata By Juba"
-            category="Afropolitan Clothing"
-            brandDescription="The Efata By Juba ‘Sankofa Collection’ features the stylized heart. The inspiration for this collection was the desire to encourage the African Woman to come back to appreciate her rich culture and to introduce our African heritage to the world. The purpose of this collection is to start a discourse through the styles and fabric combinations. Especially at this particular time when it is imperative to understand other cultures and for them to understand ours."
+            brandName="Cut & Craft"
+            category="Traditional craftsmanship with modern laser technology"
+            brandDescription="Where precision meets artistry, Cut & Craft brings you unique, handmade laser-cut wooden and accessories. Our signature collection features intricately designed clutches, along with a range of other beautifully crafted items.
+"
+            whatsapp="https://instagram.com"
             instagram="https://instagram.com"
-            twitter="https://twitter.com"
             facebook="https://facebook.com"
           />
         </div>
@@ -65,10 +71,11 @@ const CreativePage = ({ cartItemsCount }) => {
       {/* Profile Section */}
       <div className='mt-96'>
         <ViewProfile
-          profilePicture={mj}
-          fullName='Julie Baidoe - Ansah'
+          profilePicture={cTwo}
+          fullName='Abena'
           position='Creative Director'
-          bio='Who said your clothes can’t tell a story or challenge mindsets? Our Sankofa Collection is a work of art and it depicts our strong values of creating a better-unified world for the Efata Woman. It’s a style affair!'
+          bio='As I explored various crafts, I became captivated by the precision and versatility of laser cutting. The way it could transform raw materials into delicate, intricate designs left me in awe.'
+
         />
       </div>
 
@@ -76,9 +83,9 @@ const CreativePage = ({ cartItemsCount }) => {
       <div className="p-8 bg-black flex flex-col items-center mt-32">
         <h3 className="text-center text-4xl font-semibold pb-14">Gallery</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Gallery image={lfive} description="Painter" />
-          <Gallery image={lthree} description="Potter" />
-          <Gallery image={ltwo} description="Fashion & Apparel" />
+          <Gallery image={gOne} description="" />
+          <Gallery image={gThree} description="" />
+          <Gallery image={gTwo} description="" />
         </div>
       </div>
 
